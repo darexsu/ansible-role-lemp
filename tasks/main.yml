@@ -27,6 +27,12 @@
     owner: root
     group: root
     mode: 0755
+    
+- name: "Include role -> darexsu.php"
+  include_role:
+    name: darexsu.php
+    public: true
+  when: php.enabled
 
 - name: "Include role -> darexsu.nginx"
   include_role:
@@ -42,11 +48,6 @@
   include_role:
     name: darexsu.mysql
   when: mysql.enabled
-
-- name: "Include role -> darexsu.php"
-  include_role:
-    name: darexsu.php
-  when: php.enabled
 
 - name: "Include role -> darexsu.firewalld"
   include_role:
