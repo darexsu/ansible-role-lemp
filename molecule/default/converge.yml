@@ -120,6 +120,30 @@
             user: "www-data"
             group: "www-data"
 
+    # FirewallD
+    firewalld:
+      enabled: true
+      service:
+        enabled: true
+        state: "started"
+
+    # FirewallD -> rules
+    firewalld_rules:
+      service_http:
+        enabled: true
+        zone: "public"
+        state: "enabled"
+        service: "http"
+        permanent: true
+        immediate: true
+      service_https:
+        enabled: true
+        zone: "public"
+        state: "enabled"
+        service: "https"
+        permanent: true
+        immediate: true
+
   tasks:
     - name: role darexsu lemp
       include_role:
