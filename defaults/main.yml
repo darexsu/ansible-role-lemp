@@ -1,0 +1,162 @@
+---
+#    LEMP
+#      |
+#    Nginx
+#      |
+#     / \
+# MySQL MariaDB
+#     \ /
+#      |
+#     PHP
+
+# LEMP
+lemp:
+  enabled: false
+  domen: "example.site"
+  project_dir: "/usr/share/nginx/html/"
+
+# Nginx
+nginx:
+  enabled: false
+  repo: "nginx"
+  service:
+    enabled: true
+    state: "started"
+
+# Nginx -> install
+nginx_install:
+  enabled: false
+
+# Nginx -> config -> nginx.conf
+nginx_conf:
+  enabled: false
+  file: "nginx.conf"
+  src: "nginx_conf.j2"
+  backup: false
+  data:
+    user: "www-data"
+    worker_processes: "auto"
+    error_log: "/var/log/nginx/error.log notice"
+    pidfile: "/var/run/nginx.pid"
+    worker_connections: "1024"
+    multi_accept: "off"
+    mime_file_path: "/etc/nginx/mime.types"
+    access_log: "/var/log/nginx/access.log"
+    sendfile: "off"
+    tcp_nopush: "off"
+    tcp_nodelay: "on"
+    keepalive_timeout: "75s"
+    keepalive_requests: "1000"
+# Nginx -> config -> {virtualhost}.conf
+nginx_virtualhost:
+  default_conf:
+    enabled: false
+    file: "default.conf"
+    state: "present"
+    src: "nginx_virtualhost.j2"
+    backup: false
+    data:
+      listen_port: "80"
+      listen_ipv6: false
+      server_name: "{{ lemp.domen }}"
+      root: "{{ lemp.project_dir }}"
+      index: "index.html index.htm index.php"
+      error_page: ""
+      access_log: false
+      error_log: false
+      tcp_ip_socket:
+        enabled: false
+        listen: "127.0.0.1:9000"
+      unix_socket:
+        enabled: true
+        file: "php{{ php.version }}-fpm.sock"
+
+# MariaDB
+mariadb:
+  enabled: false
+  repo: "mariadb"
+  version: "10.5"
+  service:
+    state: "started"
+    enabled: true
+
+# MariaDB -> install
+mariadb_install:
+  enabled: false
+
+# MySQL
+mysql:
+  enabled: false
+  repo: "mysql"
+  version: "8.0"
+  service:
+    state: "started"
+    enabled: true
+
+# MySQL -> install
+mysql_install:
+  enabled: false
+
+# PHP
+php:
+  enabled: false
+  version: "7.4"
+  repo: "third_party"
+  service:
+    enabled: true
+    state: "started"
+
+# PHP -> install
+php_install:
+  enabled: false
+  modules: [common, fpm]
+
+# PHP -> config -> php.fpm
+php_fpm:
+  www_conf:
+    enabled: false
+    file: "www.conf"
+    state: "present"
+    src: "php_fpm.j2"
+    backup: false
+    data:
+      webserver_user: "www-data"
+      webserver_group: "www-data"
+      pm: "dynamic"
+      pm_max_children: "10"
+      pm_start_servers: "5"
+      pm_min_spare_servers: "5"
+      pm_max_spare_servers: "5"
+      pm_max_requests: "500"
+      tcp_ip_socket:
+        enabled: false
+        listen: "127.0.0.1:9000"
+      unix_socket:
+        enabled: true
+        file: "php{{ php.version }}-fpm.sock"
+        user: "www-data"
+        group: "www-data"
+
+# FirewallD
+firewalld:
+  enabled: false
+  service:
+    enabled: true
+    state: "started"
+
+# FirewallD -> rules
+firewalld_rules:
+  service_http:
+    enabled: false
+    zone: "public"
+    state: "enabled"
+    service: "http"
+    permanent: true
+    immediate: true
+  service_https:
+    enabled: false
+    zone: "public"
+    state: "enabled"
+    service: "https"
+    permanent: true
+    immediate: true
