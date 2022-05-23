@@ -27,7 +27,7 @@
     owner: root
     group: root
     mode: 0755
-    
+
 - name: "Include role -> darexsu.php"
   include_role:
     name: darexsu.php
