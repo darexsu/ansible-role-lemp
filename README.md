@@ -542,6 +542,8 @@ Your vars [host_vars]  -->  default vars [current role] --> default vars [includ
     # LEMP
     lemp:
       enabled: true
+      domen: "example.site"
+      project_dir: "/usr/share/nginx/html/"
 
     # Nginx
     nginx:
@@ -594,6 +596,8 @@ Your vars [host_vars]  -->  default vars [current role] --> default vars [includ
     # LEMP
     lemp:
       enabled: true
+      domen: "example.site"
+      project_dir: "/usr/share/nginx/html/"
 
     # Nginx
     nginx:
