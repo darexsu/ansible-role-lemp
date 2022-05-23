@@ -1,0 +1,10 @@
+---
+- name: darexsu.nginx
+
+- name: darexsu.mysql
+
+- name: darexsu.mariadb
+
+- name: darexsu.php
+
+- name: darexsu.firewalld
