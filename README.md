@@ -4,6 +4,7 @@
   - Role:
       - [platforms](#platforms)
       - [install](#install)
+      - [requirements](#requirements)
       - [Merge behaviour](#merge-behaviour)
   - Playbooks (merge version):
       - [install and configure: LEMP-stack, (Nginx, MariaDB v10.5, PHP v7.4, Firewalld) ](#install-and-configure-lemp-with-mariadb-merge-version)
@@ -32,6 +33,9 @@
 ```
 ansible-galaxy install darexsu.lemp --force
 ```
+### Requirements
+
+roles: [Nginx](https://github.com/darexsu/ansible-role-nginx), [MariaDB](https://github.com/darexsu/ansible-role-mariadb), [MySQL](https://github.com/darexsu/ansible-role-mysql), [PHP](https://github.com/darexsu/ansible-role-php), [FirewallD](https://github.com/darexsu/ansible-role-firewalld) (will automatically be installed)
 
 ### Merge behaviour
 
