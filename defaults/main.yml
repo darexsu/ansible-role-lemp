@@ -47,6 +47,7 @@ nginx_conf:
     tcp_nodelay: "on"
     keepalive_timeout: "75s"
     keepalive_requests: "1000"
+
 # Nginx -> config -> {virtualhost}.conf
 nginx_virtualhost:
   default_conf:
