@@ -7,15 +7,15 @@
       - [requirements](#requirements)
       - [Merge behaviour](#merge-behaviour)
   - Playbooks (merge version):
-      - [install and configure: LEMP-stack, (Nginx, MariaDB v10.5, PHP v7.4, Firewalld) ](#install-and-configure-lemp-with-mariadb-merge-version)
-      - [install and configure: LEMP-stack, (Nginx, MySQL v8.0, PHP v7.4, Firewalld) ](#install-and-configure-lemp-with-mysql-merge-version)
-        - [install: LEMP-stack, (Nginx, MariaDB v10.5, PHP v7.4) ](#install-lemp-with-mariadb-merge-version)
-        - [install: LEMP-stack, (Nginx, MySQL v8.0, PHP v7.4) ](#install-lemp-with-mysql-merge-version)
+      - [install and configure: LEMP-stack, (Nginx, MariaDB v10.5, PHP-fpm v7.4, Firewalld) ](#install-and-configure-lemp-with-mariadb-merge-version)
+      - [install and configure: LEMP-stack, (Nginx, MySQL v8.0, PHP-fpm v7.4, Firewalld) ](#install-and-configure-lemp-with-mysql-merge-version)
+        - [install: LEMP-stack, (Nginx, MariaDB v10.5, PHP-fpm v7.4) ](#install-lemp-with-mariadb-merge-version)
+        - [install: LEMP-stack, (Nginx, MySQL v8.0, PHP-fpm v7.4) ](#install-lemp-with-mysql-merge-version)
   - Playbooks (full version):
-      - [install and configure: LEMP-stack, (Nginx, MariaDB v10.5, PHP v7.4, Firewalld) ](#install-and-configure-lemp-with-mariadb-full-version)
-      - [install and configure: LEMP-stack, (Nginx, MySQL v8.0, PHP v7.4, Firewalld) ](#install-and-configure-lemp-with-mysql-full-version)
-        - [install: LEMP-stack, (Nginx, MariaDB v10.5, PHP v7.4) ](#install-lemp-with-mariadb-full-version)
-        - [install: LEMP-stack, (Nginx, MySQL v8.0, PHP v7.4) ](#install-lemp-with-mysql-full-version)
+      - [install and configure: LEMP-stack, (Nginx, MariaDB v10.5, PHP-fpm v7.4, Firewalld) ](#install-and-configure-lemp-with-mariadb-full-version)
+      - [install and configure: LEMP-stack, (Nginx, MySQL v8.0, PHP-fpm v7.4, Firewalld) ](#install-and-configure-lemp-with-mysql-full-version)
+        - [install: LEMP-stack, (Nginx, MariaDB v10.5, PHP-fpm v7.4) ](#install-lemp-with-mariadb-full-version)
+        - [install: LEMP-stack, (Nginx, MySQL v8.0, PHP-fpm v7.4) ](#install-lemp-with-mysql-full-version)
 
 ### Platforms
 
